@@ -8,15 +8,15 @@ services:
     - ./user.cfg:/app/user.cfg
     - ./data:/app/data
 
-  sqlitebrowser:
-    image: ghcr.io/linuxserver/sqlitebrowser
-    container_name: sqlitebrowser
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Berlin
-    volumes:
-      - ./data/config:/config
-      - ./data:/data
-    ports:
-      - 3000:3000
+  #sqlitebrowser:
+   # image: ghcr.io/linuxserver/sqlitebrowser
+    #container_name: sqlitebrowser
+    #environment:
+     # - PUID=1000
+      #- PGID=1000
+      #- TZ=Europe/Berlin
+    #volumes:
+     # - ./data/config:/config
+     # - ./data:/data
+    #ports:
+     # - 3000:3000
