@@ -24,4 +24,5 @@ jobs:
           cd /home/binance-trade-bot
           git pull
           docker-compose down --rmi all --remove-orphans
+          rm -f data/crypto_trading.db
           docker-compose up -d
