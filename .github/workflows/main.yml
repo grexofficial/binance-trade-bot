@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - '.github/**'
 
 jobs:
   deploy:
@@ -17,6 +19,7 @@ jobs:
         HOST: ${{ secrets.IP }}
         USERNAME: ${{ secrets.SSH_USER }}
         KEY: ${{ secrets.SSH_KEY }}
+        PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
         script: |
           cd /home/binance-trade-bot
           git pull
