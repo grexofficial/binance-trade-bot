@@ -1,0 +1,25 @@
+name: deploy application
+
+on:
+  # Trigger the workflow on push request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy application
+      uses: appleboy/ssh-action@v0.1.4
+      with:
+        HOST: ${{ secrets.IP }}
+        USERNAME: ${{ secrets.SSH_USER }}
+        KEY: ${{ secrets.SSH_KEY }}
+        script: |
+          cd /home/binance-trade-bot
+          git pull
+          docker-compose down
+          docker system prune
+          docker-compose up -d
